@@ -1,0 +1,192 @@
+import type { VoiceCommand } from '../../domain/models/voice-command';
+
+const ALL_13_MODELS: readonly string[] = [
+  'm310', 'm310-plus-2k', 'm310-plus-3k',
+  'omni', 'omni-4k', 'omni-x800',
+  's500',
+  'a810s', 'a810-lite', 'a800se',
+  't800', 't800e', 't400'
+];
+
+const STANDARD_AUDIO_MODELS: readonly string[] = [
+  'm310', 'm310-plus-2k', 'm310-plus-3k',
+  'a810s', 'a810-lite', 'a800se',
+  't800', 't800e', 't400'
+];
+
+export const BASE_RECORDING_COMMANDS: readonly VoiceCommand[] = [
+  {
+    id: 'cmd-take-photo',
+    phrase: 'Take a photo',
+    chinese: '拍照',
+    pinyin: 'pāi zhào',
+    description: 'Instantly captures a high-resolution snapshot still while regular video recording continues.',
+    category: 'camera',
+    name: 'Take Photo',
+    traditionalChinese: '拍照',
+    simplifiedChinese: '拍照',
+    englishCommand: 'Take a photo',
+    actionKey: 'take-photo',
+    englishAliases: ['Take a photo', 'Take photo', 'Capture photo', 'Take picture'],
+    chineseAliases: ['拍照', '照相'],
+    phoneticGuide: {
+      syllables: ['pāi', 'zhào'],
+      tones: ['1st Tone (High & Flat)', '4th Tone (Falling & Sharp)'],
+      description: 'Sharp, distinct two-syllable delivery. Emphasize falling tone on "zhào".'
+    },
+    dashcamBehavior: 'Dash cam sounds shutter click sound and writes snapshot to Photo gallery.',
+    audioFileZh: '/audio/take-photo-zh.mp3',
+    audioFileEn: '/audio/take-photo-en.mp3',
+    iconName: 'Camera',
+    priority: 1,
+    officialManualNote: 'Universal across M310, Omni, A-series, S500, and T-series.',
+    verificationStatus: 'verified',
+    sourceReference: '70mai Official Product Manuals & Firmware V1.0+ Specifications',
+    supportedModelIds: ALL_13_MODELS
+  },
+  {
+    id: 'cmd-lock-video',
+    phrase: 'Lock the video',
+    chinese: '我要录像',
+    pinyin: 'wǒ yào lù xiàng',
+    description: 'Immediately locks the active segment as an emergency protected video event.',
+    category: 'recording',
+    name: 'Lock Video',
+    traditionalChinese: '我要錄像',
+    simplifiedChinese: '我要录像',
+    englishCommand: 'Lock emergency video',
+    actionKey: 'lock-video',
+    englishAliases: ['Lock emergency video', 'Lock the video', 'Lock video', 'Emergency video'],
+    chineseAliases: ['我要录像', '我要錄像', '我要錄影', '锁定视频', '鎖定影片'],
+    phoneticGuide: {
+      syllables: ['wǒ', 'yào', 'lù', 'xiàng'],
+      tones: ['3rd Tone (Dipping)', '4th Tone (Falling)', '4th Tone (Falling)', '4th Tone (Falling)'],
+      description: 'Cadence: gentle "wǒ", followed by firm downward stress on "yào lù xiàng".'
+    },
+    dashcamBehavior: 'LED blinks amber; audio prompt confirms emergency recording; file moved to Event folder.',
+    audioFileZh: '/audio/lock-video-zh.mp3',
+    audioFileEn: '/audio/lock-video-en.mp3',
+    iconName: 'ShieldAlert',
+    priority: 2,
+    officialManualNote: 'Emergency videos are protected from loop overwrite.',
+    verificationStatus: 'verified',
+    sourceReference: '70mai Official Product Manuals & Firmware V1.0+ Specifications',
+    supportedModelIds: ALL_13_MODELS
+  },
+  {
+    id: 'cmd-turn-on-audio',
+    phrase: 'Turn on audio recording',
+    chinese: '我要录音',
+    pinyin: 'wǒ yào lù yīn',
+    description: 'Enables in-cabin microphone audio capture synchronized with dash cam footage.',
+    category: 'recording',
+    name: 'Turn On Audio',
+    traditionalChinese: '我要錄音',
+    simplifiedChinese: '我要录音',
+    englishCommand: 'Turn on audio recording',
+    actionKey: 'turn-on-audio',
+    englishAliases: ['Turn on audio recording', 'Turn on audio', 'Record audio', 'Audio on'],
+    chineseAliases: ['我要录音', '我要錄音', '打开录音', '開啟錄音'],
+    phoneticGuide: {
+      syllables: ['wǒ', 'yào', 'lù', 'yīn'],
+      tones: ['3rd Tone (Dipping)', '4th Tone (Falling)', '4th Tone (Falling)', '1st Tone (High & Flat)'],
+      description: 'End with sustained high tone on "yīn" to distinguish from "xiàng".'
+    },
+    dashcamBehavior: 'Dash cam announces "Audio recording enabled"; microphone captures cabin soundtrack.',
+    audioFileZh: '/audio/turn-on-audio-zh.mp3',
+    audioFileEn: '/audio/turn-on-audio-en.mp3',
+    iconName: 'Mic',
+    priority: 3,
+    officialManualNote: 'Subject to local passenger audio recording consent laws.',
+    verificationStatus: 'verified',
+    sourceReference: '70mai M310, A810 & T800 Manuals',
+    supportedModelIds: STANDARD_AUDIO_MODELS
+  },
+  {
+    id: 'cmd-turn-off-audio',
+    phrase: 'Turn off audio recording',
+    chinese: '关闭录音',
+    pinyin: 'guān bì lù yīn',
+    description: 'Mutes in-cabin microphone completely for confidential conversation privacy.',
+    category: 'recording',
+    name: 'Turn Off Audio',
+    traditionalChinese: '關閉錄音',
+    simplifiedChinese: '关闭录音',
+    englishCommand: 'Turn off audio recording',
+    actionKey: 'turn-off-audio',
+    englishAliases: ['Turn off audio recording', 'Turn off audio', 'Stop audio', 'Mute audio'],
+    chineseAliases: ['关闭录音', '關閉錄音', '停止录音', '停止錄音'],
+    phoneticGuide: {
+      syllables: ['guān', 'bì', 'lù', 'yīn'],
+      tones: ['1st Tone (High-flat)', '4th Tone (Falling)', '4th Tone (Falling)', '1st Tone (High-flat)'],
+      description: 'Clear distinction on "guān bì" (close) versus "dǎ kāi" (open).'
+    },
+    dashcamBehavior: 'Dash cam announces "Audio recording disabled"; video records muted soundtrack.',
+    audioFileZh: '/audio/turn-off-audio-zh.mp3',
+    audioFileEn: '/audio/turn-off-audio-en.mp3',
+    iconName: 'MicOff',
+    priority: 4,
+    officialManualNote: 'Mutes cabin audio immediately.',
+    verificationStatus: 'verified',
+    sourceReference: '70mai M310, A810 & T800 Manuals',
+    supportedModelIds: STANDARD_AUDIO_MODELS
+  },
+  {
+    id: 'cmd-turn-on-hotspot',
+    phrase: 'Turn on Wi-Fi hotspot',
+    chinese: '打开热点',
+    pinyin: 'dǎ kāi rè diǎn',
+    description: 'Broadcasts dash cam Wi-Fi network so smartphone app can connect.',
+    category: 'connectivity',
+    name: 'Turn On Hotspot',
+    traditionalChinese: '打開熱點',
+    simplifiedChinese: '打开热点',
+    englishCommand: 'Turn on Wi-Fi hotspot',
+    actionKey: 'turn-on-hotspot',
+    englishAliases: ['Turn on Wi-Fi hotspot', 'Turn on hotspot', 'Open hotspot', 'Enable hotspot'],
+    chineseAliases: ['打开热点', '打開熱點', '开启热点', '開啟熱點'],
+    phoneticGuide: {
+      syllables: ['dǎ', 'kāi', 'rè', 'diǎn'],
+      tones: ['3rd Tone (Dipping)', '1st Tone (High-flat)', '4th Tone (Falling)', '3rd Tone (Dipping)'],
+      description: 'Crisp articulation between "dǎ kāi" and "rè diǎn".'
+    },
+    dashcamBehavior: 'Wi-Fi transceiver turns on; indicator breathes blue; SSID discoverable.',
+    audioFileZh: '/audio/turn-on-hotspot-zh.mp3',
+    audioFileEn: '/audio/turn-on-hotspot-en.mp3',
+    iconName: 'Wifi',
+    priority: 5,
+    officialManualNote: 'Voice commands pause while smartphone app is connected.',
+    verificationStatus: 'verified',
+    sourceReference: '70mai M310, A810 & T800 Manuals',
+    supportedModelIds: STANDARD_AUDIO_MODELS
+  },
+  {
+    id: 'cmd-turn-off-hotspot',
+    phrase: 'Turn off Wi-Fi hotspot',
+    chinese: '关闭热点',
+    pinyin: 'guān bì rè diǎn',
+    description: 'Disables Wi-Fi AP to conserve power, reduce heat, and resume voice control.',
+    category: 'connectivity',
+    name: 'Turn Off Hotspot',
+    traditionalChinese: '關閉熱點',
+    simplifiedChinese: '关闭热点',
+    englishCommand: 'Turn off Wi-Fi hotspot',
+    actionKey: 'turn-off-hotspot',
+    englishAliases: ['Turn off Wi-Fi hotspot', 'Turn off hotspot', 'Close hotspot', 'Disable hotspot'],
+    chineseAliases: ['关闭热点', '關閉熱點', '停止热点', '停止熱點'],
+    phoneticGuide: {
+      syllables: ['guān', 'bì', 'rè', 'diǎn'],
+      tones: ['1st Tone (High-flat)', '4th Tone (Falling)', '4th Tone (Falling)', '3rd Tone (Dipping)'],
+      description: 'Flat "guān", descending "bì", descending "rè", rising dip "diǎn".'
+    },
+    dashcamBehavior: 'Wi-Fi AP shuts down; LED returns to steady green recording status.',
+    audioFileZh: '/audio/turn-off-hotspot-zh.mp3',
+    audioFileEn: '/audio/turn-off-hotspot-en.mp3',
+    iconName: 'WifiOff',
+    priority: 6,
+    officialManualNote: 'Powers down Wi-Fi module to restore driver voice triggers.',
+    verificationStatus: 'verified',
+    sourceReference: '70mai M310, A810 & T800 Manuals',
+    supportedModelIds: STANDARD_AUDIO_MODELS
+  }
+];

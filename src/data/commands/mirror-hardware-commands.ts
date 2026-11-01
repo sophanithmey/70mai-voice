@@ -1,0 +1,153 @@
+import type { VoiceCommand } from '../../domain/models/voice-command';
+
+const S500_MODELS = ['s500'] as const;
+const T_SERIES_MODELS = ['t800', 't800e', 't400'] as const;
+
+export const MIRROR_HARDWARE_COMMANDS: readonly VoiceCommand[] = [
+  {
+    id: 'cmd-show-front-cam',
+    phrase: 'Show front camera',
+    chinese: '显示前路',
+    pinyin: 'xiǎn shì qián lù',
+    description: 'Switches the full-screen mirror display to the forward windshield camera view.',
+    category: 'display',
+    name: 'Show Front Camera',
+    traditionalChinese: '顯示前路',
+    simplifiedChinese: '显示前路',
+    englishCommand: 'Show front camera',
+    actionKey: 'show-front-cam',
+    englishAliases: ['Show front camera', 'Front camera', 'Front view', 'Display front'],
+    chineseAliases: ['显示前路', '顯示前路', '看前面', '切換前路'],
+    phoneticGuide: {
+      syllables: ['xiǎn', 'shì', 'qián', 'lù'],
+      tones: ['3rd Tone (Dipping)', '4th Tone (Falling)', '2nd Tone (Rising)', '4th Tone (Falling)'],
+      description: 'Dipping "xiǎn", sharp "shì", rising "qián", sharp "lù".'
+    },
+    dashcamBehavior: 'Mirror screen instantly switches streaming feed to front 3K HDR camera.',
+    audioFileZh: '/audio/show-front-cam-zh.mp3',
+    audioFileEn: '/audio/show-front-cam-en.mp3',
+    iconName: 'Maximize2',
+    priority: 20,
+    officialManualNote: 'Exclusive to 70mai Rearview Dash Cam S500.',
+    verificationStatus: 'verified',
+    sourceReference: '70mai S500 Wide-angle Rearview Mirror Manual',
+    supportedModelIds: [...S500_MODELS]
+  },
+  {
+    id: 'cmd-show-rear-cam',
+    phrase: 'Show rear camera',
+    chinese: '显示后路',
+    pinyin: 'xiǎn shì hòu lù',
+    description: 'Switches mirror display to full-screen low-latency rear backup camera feed.',
+    category: 'display',
+    name: 'Show Rear Camera',
+    traditionalChinese: '顯示後路',
+    simplifiedChinese: '显示后路',
+    englishCommand: 'Show rear camera',
+    actionKey: 'show-rear-cam',
+    englishAliases: ['Show rear camera', 'Rear camera', 'Back camera', 'Rear view'],
+    chineseAliases: ['显示后路', '顯示後路', '看后面', '切換後路'],
+    phoneticGuide: {
+      syllables: ['xiǎn', 'shì', 'hòu', 'lù'],
+      tones: ['3rd Tone (Dipping)', '4th Tone (Falling)', '4th Tone (Falling)', '4th Tone (Falling)'],
+      description: 'Triple descending stress: "shì", "hòu", "lù".'
+    },
+    dashcamBehavior: 'Mirror screen switches display to rear HD camera stream.',
+    audioFileZh: '/audio/show-rear-cam-zh.mp3',
+    audioFileEn: '/audio/show-rear-cam-en.mp3',
+    iconName: 'Tv',
+    priority: 21,
+    officialManualNote: 'Provides electronic anti-glare streaming rearview.',
+    verificationStatus: 'verified',
+    sourceReference: '70mai S500 Wide-angle Rearview Mirror Manual',
+    supportedModelIds: [...S500_MODELS]
+  },
+  {
+    id: 'cmd-turn-on-screen',
+    phrase: 'Turn on screen',
+    chinese: '打开屏幕',
+    pinyin: 'dǎ kāi píng mù',
+    description: 'Powers on the IPS touchscreen display from sleep standby mode.',
+    category: 'display',
+    name: 'Turn On Screen',
+    traditionalChinese: '打開螢幕',
+    simplifiedChinese: '打开屏幕',
+    englishCommand: 'Turn on screen',
+    actionKey: 'turn-on-screen',
+    englishAliases: ['Turn on screen', 'Open screen', 'Screen on', 'Display on'],
+    chineseAliases: ['打开屏幕', '打開螢幕', '開啟屏幕', '亮屏'],
+    phoneticGuide: {
+      syllables: ['dǎ', 'kāi', 'píng', 'mù'],
+      tones: ['3rd Tone (Dipping)', '1st Tone (High-flat)', '2nd Tone (Rising)', '4th Tone (Falling)'],
+      description: 'Rising cadence on "píng" with sudden downward end on "mù".'
+    },
+    dashcamBehavior: 'Mirror backlight wakes up immediately showing live video preview.',
+    audioFileZh: '/audio/turn-on-screen-zh.mp3',
+    audioFileEn: '/audio/turn-on-screen-en.mp3',
+    iconName: 'Sun',
+    priority: 22,
+    officialManualNote: 'Wakes mirror display while maintaining background recording.',
+    verificationStatus: 'verified',
+    sourceReference: '70mai S500 Wide-angle Rearview Mirror Manual',
+    supportedModelIds: [...S500_MODELS]
+  },
+  {
+    id: 'cmd-turn-off-screen',
+    phrase: 'Turn off screen',
+    chinese: '关闭屏幕',
+    pinyin: 'guān bì píng mù',
+    description: 'Turns off mirror backlight so the panel functions as a standard optical rearview mirror.',
+    category: 'display',
+    name: 'Turn Off Screen',
+    traditionalChinese: '關閉螢幕',
+    simplifiedChinese: '关闭屏幕',
+    englishCommand: 'Turn off screen',
+    actionKey: 'turn-off-screen',
+    englishAliases: ['Turn off screen', 'Close screen', 'Screen off', 'Sleep screen'],
+    chineseAliases: ['关闭屏幕', '關閉螢幕', '息屏', '滅屏'],
+    phoneticGuide: {
+      syllables: ['guān', 'bì', 'píng', 'mù'],
+      tones: ['1st Tone (High-flat)', '4th Tone (Falling)', '2nd Tone (Rising)', '4th Tone (Falling)'],
+      description: 'Contrast "guān bì" clearly against "dǎ kāi".'
+    },
+    dashcamBehavior: 'Backlight turns off; mirror reflection is 100% visible while recording continues.',
+    audioFileZh: '/audio/turn-off-screen-zh.mp3',
+    audioFileEn: '/audio/turn-off-screen-en.mp3',
+    iconName: 'Moon',
+    priority: 23,
+    officialManualNote: 'Enables physical glass mirror view without electronic display glow.',
+    verificationStatus: 'verified',
+    sourceReference: '70mai S500 Wide-angle Rearview Mirror Manual',
+    supportedModelIds: [...S500_MODELS]
+  },
+  {
+    id: 'cmd-switch-camera',
+    phrase: 'Switch camera',
+    chinese: '切换摄像头',
+    pinyin: 'qiè huàn shè xiàng tóu',
+    description: 'Toggles active PIP video feed between front road view and interior cabin/rear view.',
+    category: 'display',
+    name: 'Switch Camera',
+    traditionalChinese: '切換鏡頭',
+    simplifiedChinese: '切换摄像头',
+    englishCommand: 'Switch camera',
+    actionKey: 'switch-camera',
+    englishAliases: ['Switch camera', 'Toggle camera', 'Switch view', 'Change camera'],
+    chineseAliases: ['切换摄像头', '切換鏡頭', '切换前/后', '换镜头'],
+    phoneticGuide: {
+      syllables: ['qiè', 'huàn', 'shè', 'xiàng', 'tóu'],
+      tones: ['4th Tone', '4th Tone', '4th Tone', '4th Tone', '2nd Tone'],
+      description: 'Successive sharp 4th tones culminating in rising tone "tóu".'
+    },
+    dashcamBehavior: 'Dash cam switches active onscreen camera feed to next connected sensor channel.',
+    audioFileZh: '/audio/switch-camera-zh.mp3',
+    audioFileEn: '/audio/switch-camera-en.mp3',
+    iconName: 'Layers',
+    priority: 24,
+    officialManualNote: 'Supported on multi-channel T-series models with dual or triple cameras.',
+    verificationStatus: 'verified',
+    sourceReference: '70mai T-Series (T800 / T800E) Multi-Channel Documentation',
+    supportedModelIds: [...T_SERIES_MODELS]
+  }
+];
+

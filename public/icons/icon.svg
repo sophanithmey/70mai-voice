@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141a24"/>
+      <stop offset="100%" stop-color="#080a0e"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe"/>
+      <stop offset="100%" stop-color="#00d2ff"/>
+    </linearGradient>
+    <linearGradient id="silver" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#94a3b8"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  
+  <!-- Outer Rounded Dashboard Frame -->
+  <rect x="16" y="16" width="480" height="480" rx="96" fill="url(#bg)" stroke="rgba(255,255,255,0.1)" stroke-width="6"/>
+  
+  <!-- Subtle HUD Inner Tech Ring -->
+  <circle cx="256" cy="256" r="190" fill="none" stroke="rgba(0, 210, 255, 0.15)" stroke-width="2" stroke-dasharray="8 8"/>
+  <circle cx="256" cy="256" r="160" fill="rgba(15, 19, 26, 0.6)" stroke="rgba(255,255,255,0.05)" stroke-width="3"/>
+  
+  <!-- Dashcam Lens Outer Ring -->
+  <circle cx="256" cy="256" r="110" fill="#10141d" stroke="url(#accent)" stroke-width="8" filter="url(#glow)"/>
+  <circle cx="256" cy="256" r="70" fill="#080a0e" stroke="rgba(255,255,255,0.15)" stroke-width="4"/>
+  <circle cx="256" cy="256" r="35" fill="url(#accent)" opacity="0.9"/>
+  <circle cx="240" cy="240" r="10" fill="#ffffff" opacity="0.6"/>
+  
+  <!-- Audio / Voice Waveforms (Left & Right) -->
+  <g fill="url(#accent)">
+    <!-- Left Waves -->
+    <rect x="76" y="230" width="8" height="52" rx="4"/>
+    <rect x="96" y="206" width="8" height="100" rx="4"/>
+    <rect x="116" y="222" width="8" height="68" rx="4"/>
+
+    <!-- Right Waves -->
+    <rect x="388" y="222" width="8" height="68" rx="4"/>
+    <rect x="408" y="206" width="8" height="100" rx="4"/>
+    <rect x="428" y="230" width="8" height="52" rx="4"/>
+  </g>
+  
+  <!-- M310 Voice Badge -->
+  <rect x="186" y="380" width="140" height="34" rx="17" fill="rgba(0, 210, 255, 0.12)" stroke="rgba(0, 210, 255, 0.4)" stroke-width="2"/>
+  <text x="256" y="403" fill="#00d2ff" font-family="-apple-system, sans-serif" font-size="14" font-weight="700" text-anchor="middle" letter-spacing="3">M310 VOICE</text>
+</svg>
+

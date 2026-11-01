@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+@theme {
+  /* Warm Cream & Parchment Surfaces */
+  --color-charcoal-950: #F7F4EE;
+  --color-charcoal-900: #FFFFFF;
+  --color-charcoal-850: #FAF7F2;
+  --color-charcoal-800: #EDE5D8;
+  --color-charcoal-750: #E2D8C9;
+  --color-charcoal-700: #D5C8B4;
+  --color-charcoal-600: #8C8070;
+  
+  /* Automotive Vibrant Cobalt / Electric Blue */
+  --color-electric-blue: #0284C7;
+  --color-electric-blue-hover: #0369A1;
+  --color-electric-cyan: #0284C7;
+  --color-electric-navy: #075985;
+  
+  /* Rich Deep Charcoal & Warm Stone Typography */
+  --color-silver-50: #0C0A09;
+  --color-silver-100: #1C1917;
+  --color-silver-200: #292524;
+  --color-silver-300: #44403C;
+  --color-silver-400: #6B6256;
+  --color-silver-500: #857B6D;
+  --color-silver-600: #A69B8D;
+
+  /* Status Colors with High Contrast on Cream */
+  --color-automotive-amber: #B45309;
+  --color-automotive-red: #DC2626;
+  --color-automotive-emerald: #047857;
+
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+@layer base {
+  * {
+    border-color: rgba(213, 200, 180, 0.4);
+  }
+  
+  body {
+    background-color: var(--color-charcoal-950);
+    color: var(--color-silver-100);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+}
+
+/* Automotive HUD Subtle Grid Accent on Warm Cream */
+.bg-hud-grid {
+  background-size: 28px 28px;
+  background-image: 
+    linear-gradient(to right, rgba(140, 110, 80, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(140, 110, 80, 0.05) 1px, transparent 1px);
+}
+
+/* Glassmorphism Surfaces on Cream */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(226, 216, 201, 0.85);
+  box-shadow: 0 4px 16px -2px rgba(60, 45, 30, 0.05), 0 1px 3px rgba(60, 45, 30, 0.03);
+}
+
+.glass-panel-glow {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(2, 132, 199, 0.28);
+  box-shadow: 0 10px 30px -4px rgba(60, 45, 30, 0.08), 0 0 18px rgba(2, 132, 199, 0.08);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #EDE5D8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C4B59E;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #A8987E;
+}
+
+/* PWA safe area support */
+.safe-bottom {
+  padding-bottom: max(1.25rem, env(safe-area-inset-bottom));
+}
+
+.safe-top {
+  padding-top: max(1rem, env(safe-area-inset-top));
+}
+
+/* Smooth Fade In */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
